@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Previous Year Question Papers</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Afacad&family=Marcellus&family=Montserrat&family=Quicksand&family=Slabo+27px&display=swap" rel="stylesheet">   
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            background: rgb(2, 0, 36);
+            background: radial-gradient(circle, rgba(2, 0, 36, 1) 29%, rgba(28, 145, 169, 1) 91%);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: rgb(87 230 187 / 20%);
+            border-radius: 20px;
+            padding: 20px;
+            width: 90%;
+            max-width: 510px;
+            color: whitesmoke;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            max-height: 549px; /* Set a maximum height for the card body*/
+            overflow-y: auto; /* Enable vertical scrollbar if content exceeds the max height*/
+        }
+
+        @media (max-width: 767px) {
+            .container {
+                width: 93%;
+                max-width: none;
+            }
+        }
+
+        .rounded-year-card {
+            border-radius: 20px !important;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .search-bar {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            border-radius: 20px;
+            border-color: rgb(8, 62, 72);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .search-bar:hover, .search-bar:focus {
+            border-color: rgb(8, 62, 72);
+            transform: scale(1.05); /* Zoom in effect on hover and click */
+        }
+
+        .button-color {
+            color: #0b4a58;
+            font-size: 19px;
+            font-weight: bold;
+        }
+
+        .button-color:hover {
+            color: #1259a5;
+        }
+
+        .subjects-names {
+            color: #0b4a58;
+        }
+
+        .subjects-names:hover {
+            color: #1259a5;
+        }
+
+        .rotate-down {
+            transition: transform 0.3s ease-in-out;
+            transform: rotate(0deg);
+        }
+
+        .rotate-up {
+            transition: transform 0.3s ease-in-out;
+            transform: rotate(180deg);
+        }
+
+        .modal-content {
+            border-radius: 20px;
+        }
+
+        .modal-body {
+            text-align: center;
+        }
+
+        .modal-body img {
+            display: block;
+            margin: 0 auto;
+        }
+
+        .modal {
+            backdrop-filter: blur(3px);
+        }
+        
+        .list-group {
+            max-height: 130px;  /*Set a maximum height for the list group*/
+            overflow-y: auto;  /*Enable vertical scrollbar if content exceeds the max height*/
+        }
+
+        h5, p{
+            color: #0b4a58;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container mx-auto p-8">
+
+    <h1 class="text-3xl font-bold mb-8">Previous Year Question Papers</h1>
+
+    <div class="accordion" id="yearAccordion">
+
+        <!-- 2023 -->
+        <div class="card mb-2 rounded-year-card">
+            <div class="card-header" id="heading2023">
+                <h2 class="mb-0">
+                    <button class="btn btn-link text-indigo-500 button-color" type="button"
+                            data-toggle="collapse" data-target="#collapse2023" aria-expanded="true"
+                            aria-controls="collapse2023" onclick="toggleArrow('arrow2023')">
+                        2023 <i id="arrow2023" class="fas fa-angle-down rotate-up"></i>
+                    </button>
+                </h2>
+            </div>
+
+            <div id="collapse2023" class="collapse show" aria-labelledby="heading2023" data-parent="#yearAccordion">
+                <div class="card-body">
+
+                    <!-- Search bar for 2023 -->
+                    <div class="mb-2">
+                        <input type="text" class="form-control search-bar" placeholder="Search subjects..."
+                               oninput="filterSubjects('2023', this.value)" onmouseover="zoomIn(this)"
+                               onmouseout="zoomOut(this)" onclick="zoomIn(this)">
+                    </div>
+
+                    <!-- Subject Wise Papers for 2023 -->
+                    <ul id="subjects2023" class="list-group">
+                        <li class="list-group-item">
+                            <a href="#" class="text-indigo-500 subjects-names" onclick="handleSubjectClick('Physics')">Physics</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#" class="text-indigo-500 subjects-names" onclick="handleSubjectClick('Mathematics')">Mathematics</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#" class="text-indigo-500 subjects-names" onclick="handleSubjectClick('BEE')">BEE</a>
+                        </li>
+                        
+                        <!-- Add more subjects as needed -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2022 -->
+        <div class="card mb-2 rounded-year-card">
+            <div class="card-header" id="heading2022">
+                <h2 class="mb-0">
+                    <button class="btn btn-link text-indigo-500 button-color" type="button"
+                            data-toggle="collapse" data-target="#collapse2022" aria-expanded="false"
+                            aria-controls="collapse2022" onclick="toggleArrow('arrow2022')">
+                        2022 <i id="arrow2022" class="fas fa-angle-down rotate-down"></i>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapse2022" class="collapse" aria-labelledby="heading2022" data-parent="#yearAccordion">
+                <div class="card-body">
+
+                    <!-- Search bar for 2022 -->
+                    <div class="mb-2">
+                        <input type="text" class="form-control search-bar" placeholder="Search subjects..."
+                               oninput="filterSubjects('2022', this.value)" onmouseover="zoomIn(this)"
+                               onmouseout="zoomOut(this)" onclick="zoomIn(this)">
+                    </div>
+
+                    <!-- Subject Wise Papers for 2022 -->
+                    <ul id="subjects2022" class="list-group">
+                        <li class="list-group-item">
+                            <a href="#" class="text-indigo-500 subjects-names" onclick="handleSubjectClick('Mathematics')">Mathematics</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#" class="text-indigo-500 subjects-names" onclick="handleSubjectClick('Chemistry')">Chemistry</a>
+                        </li>
+                        <!-- Add more subjects as needed -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2021 -->
+        <div class="card mb-2 rounded-year-card">
+            <div class="card-header" id="heading2021">
+                <h2 class="mb-0">
+                    <button class="btn btn-link text-indigo-500 button-color" type="button"
+                            data-toggle="collapse" data-target="#collapse2021" aria-expanded="false"
+                            aria-controls="collapse2021" onclick="toggleArrow('arrow2021')">
+                        2021 <i id="arrow2021" class="fas fa-angle-down rotate-down"></i>
+                    </button>
+                </h2>
+            </div>
+            <div id="collapse2021" class="collapse" aria-labelledby="heading2021" data-parent="#yearAccordion">
+                <div class="card-body">
+
+                    <!-- Search bar for 2021 -->
+                    <div class="mb-2">
+                        <input type="text" class="form-control search-bar" placeholder="Search subjects..."
+                               oninput="filterSubjects('2021', this.value)" onmouseover="zoomIn(this)"
+                               onmouseout="zoomOut(this)" onclick="zoomIn(this)">
+                    </div>
+
+                    <!-- Subject Wise Papers for 2021 -->
+                    <ul id="subjects2021" class="list-group">
+                        <li class="list-group-item">
+                            <a href="#" class="text-indigo-500 subjects-names" onclick="handleSubjectClick('Mathematics')">Mathematics</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#" class="text-indigo-500 subjects-names" onclick="handleSubjectClick('Chemistry')">Chemistry</a>
+                        </li>
+                        <!-- Add more subjects as needed -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add more year folders as needed -->
+
+    </div>
+</div>
+
+<!-- Modal for Download Confirmation -->
+<div class="modal fade" id="downloadModal" tabindex="-1" role="dialog" aria-labelledby="downloadModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center">
+                <img src="https://dl.dropbox.com/scl/fi/m5so4td13ijxlzncqxo52/icons8-checkmark.gif?rlkey=zli9hj7fz5upe9is2dp45hvqx&dl=0" alt="Green Tick" width="50" height="50">
+                    <h5 class="modal-title" id="downloadModalLabel">Downloading Has been Started !</h5>
+                <p class="mt-2">Check your downloads for PYQ's</p>
+                <button type="button" class="btn btn-success" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Font Awesome for the down arrow icon -->
+<script src="https://kit.fontawesome.com/your-fontawesome-kit-id.js" crossorigin="anonymous"></script>
+
+<!-- Bootstrap and jQuery scripts -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+<script>
+        // toogling script
+        function toggleArrow(arrowId) {
+        const arrowIcon = document.getElementById(arrowId);
+        arrowIcon.classList.toggle('rotate-down');
+        arrowIcon.classList.toggle('rotate-up');
+    }
+
+    // Function to handle arrow rotation based on collapse state
+    function handleArrowRotation(collapseId, arrowId) {
+        const collapseElement = document.getElementById(collapseId);
+        const arrowIcon = document.getElementById(arrowId);
+
+        if (collapseElement.classList.contains('show')) {
+            arrowIcon.classList.remove('rotate-down');
+            arrowIcon.classList.add('rotate-up');
+        } else {
+            arrowIcon.classList.remove('rotate-up');
+            arrowIcon.classList.add('rotate-down');
+        }
+    }
+
+    // Function to filter subjects based on search input
+    function filterSubjects(year, searchValue) {
+        const subjectsList = document.getElementById(`subjects${year}`);
+        const subjects = subjectsList.getElementsByTagName('li');
+
+        for (let i = 0; i < subjects.length; i++) {
+            const subject = subjects[i].getElementsByTagName('a')[0];
+            const subjectName = subject.innerText.toLowerCase();
+            if (subjectName.includes(searchValue.toLowerCase())) {
+                subjects[i].style.display = 'block';
+            } else {
+                subjects[i].style.display = 'none';
+            }
+        }
+
+        // Zoom in on input if there is any text
+        const searchBar = document.querySelector(`.search-bar`);
+        if (searchValue.trim() !== '') {
+            searchBar.style.transform = 'scale(1.05)';
+        } else {
+            searchBar.style.transform = 'scale(1)';
+        }
+    }
+
+    // Function to zoom in on mouseover
+    function zoomIn(element) {
+        if (element.value.trim() === '') {
+            element.style.transform = 'scale(1.05)';
+        }
+    }
+
+    // Function to zoom out on mouseout
+    function zoomOut(element) {
+        if (element.value.trim() === '') {
+            element.style.transform = 'scale(1)';
+        }
+    }
+
+    // Function to handle subject click
+    function handleSubjectClick(subject) {
+        // You can customize this function based on your requirements
+        $('#downloadModal').modal('show');
+        // Here, you can perform actions specific to the clicked subject
+        console.log(`Subject Clicked: ${subject}`);
+    }
+
+    // Add event listeners for each accordion item to handle arrow rotation
+    document.getElementById('collapse2023').addEventListener('show.bs.collapse', function () {
+        handleArrowRotation('collapse2023', 'arrow2023');
+    });
+    document.getElementById('collapse2023').addEventListener('hide.bs.collapse', function () {
+        handleArrowRotation('collapse2023', 'arrow2023');
+    });
+
+    document.getElementById('collapse2022').addEventListener('show.bs.collapse', function () {
+        handleArrowRotation('collapse2022', 'arrow2022');
+    });
+    document.getElementById('collapse2022').addEventListener('hide.bs.collapse', function () {
+        handleArrowRotation('collapse2022', 'arrow2022');
+    });
+
+    // Add more event listeners as needed for additional accordion items
+</script>
+
+</body>
+</html>
